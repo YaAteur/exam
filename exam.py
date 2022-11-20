@@ -30,7 +30,7 @@ class Parser():
             for i in range(len(product_list)):
                 product = product_list[i].find('a', class_='goods-tile__heading ng-star-inserted').text
                 try:
-                    new_price = product_list[i].find('span', class_='goods-tile__price-value').text
+                    new_price = product_list[i].find('span', class_='goods-tile__price-value').text.replace(' ',' ')
                     with open('myproduct.txt', 'a', encoding='UTF-8') as file:
                         file.write(f"{product}  New price {new_price}'\n'")
                 except AttributeError:
